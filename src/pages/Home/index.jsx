@@ -3,7 +3,7 @@ import TextField, { Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 
 import restaurante from '../../assets/restaurante-fake.png';
-import { Card, RestaurantCard } from '../../components';
+import { Card, RestaurantCard, Modal } from '../../components';
 
 import { Container, Carousel, Search, Logo, Wrapper, Map, CarouselTitle } from './styles';
 import logo from '../../assets/logo.svg';
@@ -11,6 +11,7 @@ import Slider from 'react-slick';
 
 const Home = () => {
   const [inputValue, setInpuntValue] = useState('');
+  const [modalopened, setModalOpened] = useState(true);
 
   const settings = {
     dots: false,
@@ -48,6 +49,7 @@ const Home = () => {
         <RestaurantCard />
       </Container>
       <Map />
+      <Modal open={modalopened} onClose={() => setModalOpened(!modalopened)} />
     </Wrapper>
   );
 };
